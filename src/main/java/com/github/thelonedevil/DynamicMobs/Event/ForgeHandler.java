@@ -150,8 +150,8 @@ public class ForgeHandler {
         DamageSource source = event.source;
         if (source.getSourceOfDamage() instanceof EntityPlayer) {
             EntityLivingBase e = event.entityLiving;
-            if (e instanceof EntityMob) {
-                ExtendedMob mob = ExtendedMob.get((EntityMob) e);
+            if (e instanceof EntityMob || e instanceof EntitySlime || e instanceof EntityGhast ||e instanceof EntityDragon) {
+                ExtendedMob mob = ExtendedMob.get(e);
                 int moblevel = mob.getLevel();
                 int difficulty = mob.getDifficulty();
                 LogHelper.info("mob level=" + moblevel);
@@ -160,8 +160,32 @@ public class ForgeHandler {
                     xp = (((Math.pow(moblevel, 0.6))) * ConfigurationHandler.creeperxp) * difficulty;
                 } else if (e instanceof EntityZombie) {
                     xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                    if(e instanceof EntityPigZombie){
+                        xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                    }
                 } else if (e instanceof EntitySkeleton) {
                     xp = (((Math.pow(moblevel, 0.6))) * ConfigurationHandler.skelexp) * difficulty;
+                }else if(e instanceof EntitySpider){
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                    if(e instanceof EntityCaveSpider){
+                        xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                    }
+                } else if(e instanceof EntityEnderman){
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+
+                } else if(e instanceof EntityGhast){
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                } else if(e instanceof EntityBlaze){
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                } else if(e instanceof  EntitySlime){
+                    if(e instanceof EntityMagmaCube){
+                        xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                    }
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                }else if (e instanceof EntityWitch){
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
+                } else if(e instanceof  EntitySilverfish){
+                    xp = (((Math.pow(moblevel, 0.6))) *  ConfigurationHandler.zombiexp) * difficulty;
                 }
                 if (xp > 0) {
                     if (!source.getSourceOfDamage().worldObj.isRemote) {
