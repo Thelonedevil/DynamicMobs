@@ -1,4 +1,4 @@
-package com.github.thelonedevil.DynamicMobs.Event;
+package com.github.thelonedevil.DynamicMobs.handler;
 
 /**
  * Created by justin on 14/08/2014.

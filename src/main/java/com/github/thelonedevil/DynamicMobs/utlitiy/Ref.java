@@ -1,4 +1,4 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.utlitiy;
 
 /**
  * Created by justin on 14/08/2014.

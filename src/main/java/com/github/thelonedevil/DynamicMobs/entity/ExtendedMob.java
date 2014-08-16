@@ -1,5 +1,6 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.entity;
 
+import com.github.thelonedevil.DynamicMobs.utlitiy.Ref;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;

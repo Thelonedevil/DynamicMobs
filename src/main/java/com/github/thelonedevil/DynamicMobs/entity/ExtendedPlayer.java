@@ -1,4 +1,4 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.entity;
 
 
 import net.minecraft.entity.Entity;

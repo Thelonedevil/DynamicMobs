@@ -1,4 +1,4 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.client;
 
 import cpw.mods.fml.client.IModGuiFactory;
 import net.minecraft.client.Minecraft;

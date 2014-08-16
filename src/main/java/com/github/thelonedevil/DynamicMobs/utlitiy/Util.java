@@ -1,15 +1,8 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.utlitiy;
 
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.UUID;
 
 public class Util {

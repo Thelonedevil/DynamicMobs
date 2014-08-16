@@ -1,4 +1,4 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.utlitiy;
 
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;

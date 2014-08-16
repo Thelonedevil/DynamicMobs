@@ -1,8 +1,10 @@
-package com.github.thelonedevil.DynamicMobs;
+package com.github.thelonedevil.DynamicMobs.client;
 
 /**
  * Created by justin on 14/08/2014.
  */
+import com.github.thelonedevil.DynamicMobs.handler.ConfigurationHandler;
+import com.github.thelonedevil.DynamicMobs.utlitiy.Ref;
 import cpw.mods.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
