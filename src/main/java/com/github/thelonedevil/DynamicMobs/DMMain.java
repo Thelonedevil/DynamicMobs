@@ -31,6 +31,7 @@ public class DMMain {
 
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+        
         network = NetworkRegistry.INSTANCE.newSimpleChannel("DynamicMobs");
         network.registerMessage(SyncEEP.Handler.class, SyncEEP.class, 0 , Side.CLIENT);
         FMLCommonHandler.instance().bus().register(new FMLHandler());
