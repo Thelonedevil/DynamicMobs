@@ -31,9 +31,9 @@ public class DMMain {
 
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-        
+
         network = NetworkRegistry.INSTANCE.newSimpleChannel("DynamicMobs");
-        network.registerMessage(SyncEEP.Handler.class, SyncEEP.class, 0 , Side.CLIENT);
+        proxy.registerNetwork();
         FMLCommonHandler.instance().bus().register(new FMLHandler());
         MinecraftForge.EVENT_BUS.register(new ForgeHandler());
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
