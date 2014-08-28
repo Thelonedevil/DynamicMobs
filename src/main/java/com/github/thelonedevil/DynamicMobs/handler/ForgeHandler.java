@@ -67,6 +67,9 @@ public class ForgeHandler {
                     mob.setDifficulty(diff);
                 }
                 if (player != null) {
+                    if(ConfigurationHandler.players.contains(player.getCommandSenderName())){
+                        return;
+                    }
                     int level = ExtendedPlayer.get(player).getLevel();
                     int level1 = level + 3;
                     mob.setLevel(level1);
@@ -141,6 +144,9 @@ public class ForgeHandler {
                     mob.setDifficulty(diff);
                 }
                 if (player != null) {
+                    if(ConfigurationHandler.players.contains(player.getCommandSenderName())){
+                        return;
+                    }
                     int level = ExtendedPlayer.get(player).getLevel();
                     int level1 = level + 3;
                     mob.setLevel(level1);
@@ -176,6 +182,9 @@ public class ForgeHandler {
                     mob.setDifficulty(diff);
                 }
                 if (player != null) {
+                    if(ConfigurationHandler.players.contains(player.getCommandSenderName())){
+                        return;
+                    }
                     int level = ExtendedPlayer.get(player).getLevel();
                     int level1 = level + 3;
                     mob.setLevel(level1);
@@ -193,6 +202,9 @@ public class ForgeHandler {
     public void onPlayerKill(LivingDeathEvent event) {
         DamageSource source = event.source;
         if (source.getSourceOfDamage() instanceof EntityPlayer) {
+            if(ConfigurationHandler.players.contains(source.getSourceOfDamage().getCommandSenderName())){
+                return;
+            }
             EntityLivingBase e = event.entityLiving;
             if (e instanceof EntityMob || e instanceof EntitySlime || e instanceof EntityGhast || e instanceof EntityDragon) {
                 ExtendedMob mob = ExtendedMob.get(e);

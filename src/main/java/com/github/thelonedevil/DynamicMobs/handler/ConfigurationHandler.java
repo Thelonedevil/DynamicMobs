@@ -6,6 +6,10 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by justin on 14/08/2014.
@@ -29,6 +33,7 @@ public class ConfigurationHandler {
     public static int ghastxp = 10;
     public static int blazexp = 10;
     public static int silverfishxp = 3;
+    public static List<String> players;
 
     public static void init(File configFile) {
 // Create the configuration object from the given configuration file
@@ -55,8 +60,8 @@ public class ConfigurationHandler {
         witherxp = configuration.getInt("witherXp", Configuration.CATEGORY_GENERAL, 400, 0, Integer.MAX_VALUE, "This is the base xp that a level 1  wither skeleton will give");
         ghastxp = configuration.getInt("ghastXp", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "This is the base xp that a level 1  wither skeleton will give");
         blazexp = configuration.getInt("blazeXp", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "This is the base xp that a level 1  wither skeleton will give");
-        silverfishxp = configuration.getInt("ailverfishXp", Configuration.CATEGORY_GENERAL, 3, 0, Integer.MAX_VALUE, "This is the base xp that a level 1  wither skeleton will give");
-
+        silverfishxp = configuration.getInt("silverfishXp", Configuration.CATEGORY_GENERAL, 3, 0, Integer.MAX_VALUE, "This is the base xp that a level 1  wither skeleton will give");
+        players = Arrays.asList(configuration.getStringList("players", Configuration.CATEGORY_GENERAL, new String[]{}, "List of players that are exempt from this mod"));
         if (configuration.hasChanged()) {
             configuration.save();
         }
