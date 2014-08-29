@@ -18,6 +18,7 @@ import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -31,6 +32,7 @@ public class ForgeHandler {
             ExtendedPlayer.register(event.entity);
         }
         if (event.entity instanceof EntityMob || event.entity instanceof EntitySlime || event.entity instanceof EntityGhast || event.entity instanceof EntityDragon) {
+            if(ExtendedMob.get(event.entity) == null)
             ExtendedMob.register(event.entity);
         }
     }
@@ -73,13 +75,13 @@ public class ForgeHandler {
                     int level = ExtendedPlayer.get(player).getLevel();
                     int level1 = level + 3;
                     mob.setLevel(level1);
-                    LogHelper.info("MobLevel = " + level1);
+                    //LogHelper.info("MobLevel = " + level1);
 
                     double health = ((EntityMob) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue();
-                    ((EntityMob) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(health+(level1 * 0.8) * 1.2 + (health * 0.8));
-                    ((EntityMob) event.entity).setHealth((float)(health +((level1 * 0.8) * 1.2 + (health * 0.2))));
+                    ((EntityMob) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(((level1 * 0.8) * 3 + (health)));
+                    ((EntityMob) event.entity).setHealth((float) (((level1 * 0.8) * 3 + (health))));
                     /*double damage = ((EntityMob) event.entity).getEntityAttribute(SharedMonsterAttributes.attackDamage).getBaseValue();
-                    ((EntityMob) event.entity).getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue((level1 * 0.8) * 1.2 + damage);*/
+                    ((EntityMob) event.entity).getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue((level1 * 0.8) * 1.6 + damage);*/
                 } else {
                     mob.setLevel(3);
                 }
@@ -113,8 +115,10 @@ public class ForgeHandler {
                     int level1 = level + 3;
                     mob.setLevel(level1);
                     double health = ((EntitySlime) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue();
-                    ((EntitySlime) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((level1 * 0.8) * 1.2 + (health * 0.8));
-                    ((EntitySlime) event.entity).setHealth((float)(health +((level1 * 0.8) * 1.2 + (health * 0.2))));
+
+                            ((EntitySlime) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(((level1 * 0.8) * 3 + (health)));
+                            ((EntitySlime) event.entity).setHealth((float) (((level1 * 0.8) * 3 + (health))));
+
                 } else {
                     mob.setLevel(3);
                 }
@@ -151,8 +155,11 @@ public class ForgeHandler {
                     int level1 = level + 3;
                     mob.setLevel(level1);
                     double health = ((EntityGhast) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue();
-                    ((EntityGhast) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((level1 * 0.8) * 1.2 + (health * 0.8));
-                    ((EntityGhast) event.entity).setHealth((float)(health +((level1 * 0.8) * 1.2 + (health * 0.2))));
+
+
+                            ((EntityGhast) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(((level1 * 0.8) * 3 + (health)));
+                            ((EntityGhast) event.entity).setHealth((float) (((level1 * 0.8) * 3 + (health))));
+
                 } else {
                     mob.setLevel(3);
                 }
@@ -189,8 +196,10 @@ public class ForgeHandler {
                     int level1 = level + 3;
                     mob.setLevel(level1);
                     double health = ((EntityDragon) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue();
-                    ((EntityDragon) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((level1 * 0.8) * 1.2 + (health * 0.8));
-                    ((EntityDragon) event.entity).setHealth((float)(health +((level1 * 0.8) * 1.2 + (health * 0.2))));
+
+                            ((EntityDragon) event.entity).getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(((level1 * 0.8) * 3 + (health)));
+                            ((EntityDragon) event.entity).setHealth((float) (((level1 * 0.8) * 3 + (health))));
+
                 } else {
                     mob.setLevel(3);
                 }
@@ -215,7 +224,7 @@ public class ForgeHandler {
                 } else {
                     difficulty = 1;
                 }
-                LogHelper.info("mob level=" + moblevel);
+                //LogHelper.info("mob level=" + moblevel);
                 double xp = 0.0;
                 if (e instanceof EntityCreeper) {
                     xp = (((Math.pow(moblevel, 0.6))) * ConfigurationHandler.creeperxp) * difficulty;
